@@ -85,6 +85,8 @@ if (thumb2 <= 5 | thumb1 <= 5 | np1 <= 5| np2 <= 5) {
 }
 ```
 
+*Looks good to me!*
+
 Test Function to see if every possible if statement runs. 
 ```{r}
 z.prop.test(p1 = 1/4, n1= 29, p0= .2)
