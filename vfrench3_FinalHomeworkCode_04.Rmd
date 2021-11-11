@@ -170,6 +170,7 @@ g <- ggplot(data = data, aes(x = x, y = y)) + geom_point() + geom_smooth(method 
 g
 ```
 
+*Dont forget to label your axes!* 
 
 2. Identify and interpret the point estimate of the slope (β1).
 
@@ -441,6 +442,8 @@ We can see the residuals are more normally distributed and the p-value of the Sh
 5. Looking at your two models, which do you think is better? Why?
 
 Looking at the two models the log transformation seemed to create a better fitting model. The data assumed the model assumptions, meaning it was not as skewed to the left as the original data. This resulted in smaller and more consistent CIs, and a higher R squared value indicating a stronger linear relationship between the variables than the original model suggests. 
+
+*great! good job with your interpretations.*
 
 # Challenges
 
