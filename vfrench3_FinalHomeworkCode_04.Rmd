@@ -166,8 +166,11 @@ eq
 #Create the ggplot item
 g <- ggplot(data = data, aes(x = x, y = y)) + geom_point() + geom_smooth(method = "lm", formula = y ~ x) + geom_text(x = 200, y = 750, label= lm_eqn(m))
 g
-```
+#Schmitt uses annotate function for text on plot
 
+# OR check out ggpmisc package 
+#https://stackoverflow.com/questions/7549694/add-regression-line-equation-and-r2-on-graph
+```
 
 2. Identify and interpret the point estimate of the slope (β1).
 
@@ -185,6 +188,7 @@ beta1
 ```
 
 Interpretation: 
+
 - if the species' average brain size is zero grams then the expected longevity for that species would be 249 months (which rationally is not a good assumption assuming an animal cannot function without a brain.)
 - For every 1 gram of additional brain size, a species is expected to increase their longevity by 1.22 months. 
 
@@ -395,6 +399,23 @@ g <- g + geom_line(aes(x = x, y = PIlwr, color = 'PI'))
 g <- g + geom_line(aes(x = x, y = PIupr, color = 'PI'))
 g <- g +  scale_color_manual(name='Interval',breaks=c('CI', 'PI'), values=c('CI'='red', 'PI'='blue'))
 g
+
+#Theme command in ggplot 2 for legends 
+#also if the color command is in the aesthetic call the legend should pop up automatically!!!
+
+#OR 
+
+#Isabel Suggestion
+lm_eqn <- function(df){
+    m <- lm(y ~ x, df);
+    eq <- substitute(italic(y) == a + b %.% italic(x)*","~~italic(r)^2~"="~r2, 
+         list(a = format(unname(coef(m)[1]), digits = 2),
+              b = format(unname(coef(m)[2]), digits = 2),
+             r2 = format(summary(m)$r.squared, digits = 3)))
+    as.character(as.expression(eq));
+}
+p1 <- g + geom_text(x = 200, y = 400, label = lm_eqn(df), parse = TRUE)
+p1
 ```
 
 4. Produce a point estimate and associated 90 percent PI for the longevity of a species whose brain weight is 800 gm. Do you trust the model to predict observations accurately for this value of the explanatory variable? Why or why not?
