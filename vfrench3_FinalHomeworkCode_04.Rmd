@@ -85,6 +85,8 @@ if (thumb2 <= 5 | thumb1 <= 5 | np1 <= 5| np2 <= 5) {
 }
 ```
 
+*Looks good to me!*
+
 Test Function to see if every possible if statement runs. 
 ```{r}
 z.prop.test(p1 = 1/4, n1= 29, p0= .2)
@@ -171,6 +173,8 @@ g
 # OR check out ggpmisc package 
 #https://stackoverflow.com/questions/7549694/add-regression-line-equation-and-r2-on-graph
 ```
+
+*Dont forget to label your axes!* 
 
 2. Identify and interpret the point estimate of the slope (β1).
 
@@ -460,6 +464,8 @@ We can see the residuals are more normally distributed and the p-value of the Sh
 5. Looking at your two models, which do you think is better? Why?
 
 Looking at the two models the log transformation seemed to create a better fitting model. The data assumed the model assumptions, meaning it was not as skewed to the left as the original data. This resulted in smaller and more consistent CIs, and a higher R squared value indicating a stronger linear relationship between the variables than the original model suggests. 
+
+*great! good job with your interpretations.*
 
 # Challenges
 
